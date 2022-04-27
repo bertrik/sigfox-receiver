@@ -1,0 +1,3 @@
+include 'sigfox-receiver'
+rootProject.name = 'sigfox-receiver'
+

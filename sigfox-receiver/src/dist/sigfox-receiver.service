@@ -1,0 +1,21 @@
+# copy this to /etc/systemd/system
+# then sudo systemctl daemon-reload
+# and enable with sudo systemctl enable --now sigfox-receiver
+
+[Unit]
+Description=sigfox-receiver
+After=network.target
+
+[Service]
+WorkingDirectory=/home/bertrik/sigfox-receiver
+ExecStart=/home/bertrik/sigfox-receiver/bin/sigfox-receiver
+Type=simple
+KillMode=process
+Restart=on-failure
+RestartSec=10s
+TimeoutStopSec=15s
+User=bertrik
+Environment="SIGFOX_RECEIVER_OPTS=-Xmx64M"
+
+[Install]
+WantedBy=multi-user.target
