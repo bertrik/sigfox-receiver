@@ -43,7 +43,7 @@ public final class SigfoxRestServer {
     }
 
     private Server createRestServer(int port, String contextPath, Class<?> clazz) {
-        LOG.info("Setting up PM API REST service on {}", port);
+        LOG.info("Setting up SigFox REST service on {}", port);
         Server server = new Server(port);
 
         // setup context
