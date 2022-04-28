@@ -8,4 +8,6 @@ services:
       - "./sigfox-receiver.yaml:/opt/sigfox-receiver/sigfox-receiver.yaml:ro"
       - "./log4j.properties:/opt/sigfox-receiver/log4j.properties:ro"
       - "./log:/opt/sigfox-receiver/log:rw"
+    ports:
+      - "9001:9001"
 
