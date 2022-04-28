@@ -43,13 +43,20 @@ public final class SigfoxReceiver {
     }
 
     private void start() throws IOException {
+        LOG.info("Starting SigfoxReceiver");
         restServer.start();
+    }
+    
+    private void stop() {
+        LOG.info("Stopping SigfoxReceiver");
+        restServer.stop();
     }
 
     public static void main(String[] args) throws IOException {
         PropertyConfigurator.configure("log4j.properties");
         SigfoxReceiverConfig config = readOrCreateConfig(new File("sigfox-receiver.yaml"));
         SigfoxReceiver app = new SigfoxReceiver(config);
+        Runtime.getRuntime().addShutdownHook(new Thread(app::stop));
         app.start();
     }
 
