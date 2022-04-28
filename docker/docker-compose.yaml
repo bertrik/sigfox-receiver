@@ -1,0 +1,11 @@
+version: "3"
+services:
+  java:
+    build: ..
+    image: ghcr.io/bertrik/sigfox-receiver
+    restart: always
+    volumes:
+      - "./sigfox-receiver.yaml:/opt/sigfox-receiver/sigfox-receiver.yaml:ro"
+      - "./log4j.properties:/opt/sigfox-receiver/log4j.properties:ro"
+      - "./log:/opt/sigfox-receiver/log:rw"
+
