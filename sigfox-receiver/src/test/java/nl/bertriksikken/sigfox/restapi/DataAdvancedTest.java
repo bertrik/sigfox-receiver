@@ -34,6 +34,9 @@ public final class DataAdvancedTest {
         
         ComputedLocation computedLocation = dataAdvanced.computedLocation;
         Assert.assertNotNull(computedLocation);
+        
+        String s = dataAdvanced.toString();
+        System.out.println(s);
     }
     
 }

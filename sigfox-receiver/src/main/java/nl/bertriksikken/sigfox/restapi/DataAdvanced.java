@@ -1,5 +1,7 @@
 package nl.bertriksikken.sigfox.restapi;
 
+import java.util.Locale;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -29,24 +31,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public final class DataAdvanced {
-    
+
     @JsonProperty("device")
-    String device;
-    
+    String device = "";
+
     @JsonProperty("time")
-    long time;
-    
+    long time = 0;
+
     @JsonProperty("data")
-    String data;
-    
+    String data = "";
+
     @JsonProperty("seqNumber")
-    int seqNumber;
+    int seqNumber = 0;
 
     @JsonProperty("lqi")
-    String lqi;     // e.g. "Limit"
-    
+    String lqi = ""; // e.g. "Limit"
+
     @JsonProperty("linkQuality")
-    int linkQuality;    // e.g. 0
+    int linkQuality = 0; // e.g. 0
 
     @JsonProperty("fixedLat")
     Double fixedLat = Double.NaN;
@@ -65,5 +67,14 @@ public final class DataAdvanced {
 
     @JsonProperty("computedLocation")
     ComputedLocation computedLocation = new ComputedLocation();
+
+    @Override
+    public String toString() {
+        return String.format(Locale.ROOT,
+                "{device=%s,time=%d,data=%s,seqNumber=%d,lqi=%s,linkQuality=%d,fixed={%f,%f},operatorName=%s,"
+                        + "countryCode=%d,deviceTypeId=%s,computedLocation=%s}",
+                device, time, data, seqNumber, lqi, linkQuality, fixedLat, fixedLng, operatorName, countryCode,
+                deviceTypeId, computedLocation);
+    }
 
 }
