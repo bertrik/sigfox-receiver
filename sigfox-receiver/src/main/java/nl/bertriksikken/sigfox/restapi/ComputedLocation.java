@@ -10,18 +10,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public final class ComputedLocation {
 
     @JsonProperty("lat")
-    double latitude;
+    double latitude = Double.NaN;
 
     @JsonProperty("lng")
-    double longitude;
+    double longitude = Double.NaN;
 
     @JsonProperty("radius")
-    int radius;
+    int radius = 0;
 
     @JsonProperty("source")
-    int source;
+    int source = 0;
 
     @JsonProperty("status")
-    int status;
+    int status = 0;
 
 }

@@ -1,0 +1,69 @@
+package nl.bertriksikken.sigfox.restapi;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+/**
+ * Representation of JSON object for "Data advanced" callback.<br>
+ * Assumes the following settings in the backend:
+ * <li>HTTP method: POST
+ * <li>Content-type: application/json
+ * <li>Body:
+ * 
+ * <pre>
+ * {
+  "device": "{device}",
+  "time": {time},
+  "data": "{data}",
+  "seqNumber": {seqNumber},
+  "lqi": "{lqi}",
+  "linkQuality": "{linkQuality}",
+  "fixedLat": "{fixedLat}",
+  "fixedLng": "{fixedLng}",
+  "operatorName": "{operatorName}",
+  "countryCode": "{countryCode}",
+  "deviceTypeId": "{deviceTypeId}",
+  "computedLocation": {computedLocation}
+  }
+ * </pre>
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
+public final class DataAdvanced {
+    
+    @JsonProperty("device")
+    String device;
+    
+    @JsonProperty("time")
+    long time;
+    
+    @JsonProperty("data")
+    String data;
+    
+    @JsonProperty("seqNumber")
+    int seqNumber;
+
+    @JsonProperty("lqi")
+    String lqi;     // e.g. "Limit"
+    
+    @JsonProperty("linkQuality")
+    int linkQuality;    // e.g. 0
+
+    @JsonProperty("fixedLat")
+    Double fixedLat = Double.NaN;
+
+    @JsonProperty("fixedLng")
+    Double fixedLng = Double.NaN;
+
+    @JsonProperty("operatorName")
+    String operatorName = "";
+
+    @JsonProperty("countryCode")
+    int countryCode = 0; // e.g. 528
+
+    @JsonProperty("deviceTypeId")
+    String deviceTypeId = ""; // e.g. 628fd74fb3cabb6565ae81bb
+
+    @JsonProperty("computedLocation")
+    ComputedLocation computedLocation = new ComputedLocation();
+
+}

@@ -1,0 +1,14 @@
+{
+  "device": "1FD48BE",
+  "time": 1653666733,
+  "data": "00",
+  "seqNumber": 16,
+  "lqi": "Limit",
+  "linkQuality": "0",
+  "fixedLat": "0.0",
+  "fixedLng": "0.0",
+  "operatorName": "SIGFOX_Netherlands_Hyrde_Networks_BV",
+  "countryCode": "528",
+  "deviceTypeId": "628fd74fb3cabb6565ae81bb",
+  "computedLocation": {"lat":52.003292529645705,"lng":5.569001982230841,"radius":7800,"source":2,"status":1}
+}
