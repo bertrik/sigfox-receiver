@@ -17,4 +17,9 @@ public final class SigfoxRestApi implements ISigfoxRestApi {
         LOG.info("Data advanced, data: {}", data);
     }
 
+    @Override
+    public void status(String data) {
+        LOG.info("Status, data: {}", data);
+    }
+
 }

@@ -19,4 +19,8 @@ public interface ISigfoxRestApi {
     @Path("/advanced")
     void advanced(String data);
 
+    @POST
+    @Path("/status")
+    void status(String data);
+
 }
