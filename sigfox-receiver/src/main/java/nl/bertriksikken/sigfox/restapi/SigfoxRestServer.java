@@ -19,7 +19,6 @@ public final class SigfoxRestServer {
     private final Server server;
 
     public SigfoxRestServer(SigfoxRestApiConfig config) {
-//        SigfoxRestApi.initialize(config.getMaxDistance(), map);
         this.server = createRestServer(config.getPort(), config.getPath(), SigfoxRestApi.class);
     }
 
