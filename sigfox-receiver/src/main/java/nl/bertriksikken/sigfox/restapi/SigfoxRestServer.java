@@ -1,7 +1,9 @@
 package nl.bertriksikken.sigfox.restapi;
 
 import java.io.IOException;
+import java.util.stream.Stream;
 
+import org.eclipse.jetty.server.ConnectionFactory;
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.HttpConnectionFactory;
 import org.eclipse.jetty.server.Server;
@@ -50,12 +52,9 @@ public final class SigfoxRestServer {
 
         // suppress sending the exact jetty version
         for (Connector connector : server.getConnectors()) {
-            for (org.eclipse.jetty.server.ConnectionFactory connectionFactory : connector.getConnectionFactories()) {
-                if (connectionFactory instanceof HttpConnectionFactory) {
-                    HttpConnectionFactory httpConnectionFactory = (HttpConnectionFactory) connectionFactory;
-                    httpConnectionFactory.getHttpConfiguration().setSendServerVersion(false);
-                }
-            }
+            connector.getConnectionFactories().stream().filter(HttpConnectionFactory.class::isInstance)
+                    .map(HttpConnectionFactory.class::cast)
+                    .forEach(f -> f.getHttpConfiguration().setSendServerVersion(false));
         }
 
         // setup web services container
