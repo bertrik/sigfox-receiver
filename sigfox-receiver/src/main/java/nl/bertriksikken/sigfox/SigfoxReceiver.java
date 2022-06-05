@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
+import nl.bertriksikken.sigfox.export.EventWriter;
 import nl.bertriksikken.sigfox.restapi.SigfoxRestServer;
 
 public final class SigfoxReceiver {
@@ -22,7 +23,9 @@ public final class SigfoxReceiver {
     private final SigfoxRestServer restServer;
 
     public SigfoxReceiver(SigfoxReceiverConfig config) {
-        this.restServer = new SigfoxRestServer(config.getRestApiConfig());
+        EventWriter eventWriter = new EventWriter(new File(config.getEventFile()));
+        SigfoxRestHandler handler = new SigfoxRestHandler(eventWriter);
+        this.restServer = new SigfoxRestServer(config.getRestConfig(), handler);
     }
 
     private static SigfoxReceiverConfig readOrCreateConfig(File configFile) throws IOException {
@@ -46,7 +49,7 @@ public final class SigfoxReceiver {
         LOG.info("Starting SigfoxReceiver");
         restServer.start();
     }
-    
+
     private void stop() {
         LOG.info("Stopping SigfoxReceiver");
         restServer.stop();

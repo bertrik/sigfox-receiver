@@ -1,9 +1,7 @@
 package nl.bertriksikken.sigfox.restapi;
 
 import java.io.IOException;
-import java.util.stream.Stream;
 
-import org.eclipse.jetty.server.ConnectionFactory;
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.HttpConnectionFactory;
 import org.eclipse.jetty.server.Server;
@@ -14,14 +12,17 @@ import org.glassfish.jersey.servlet.ServletContainer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import nl.bertriksikken.sigfox.SigfoxRestHandler;
+
 public final class SigfoxRestServer {
 
     private static final Logger LOG = LoggerFactory.getLogger(SigfoxRestServer.class);
 
     private final Server server;
 
-    public SigfoxRestServer(SigfoxRestApiConfig config) {
-        this.server = createRestServer(config.getPort(), config.getPath(), SigfoxRestApi.class);
+    public SigfoxRestServer(SigfoxRestConfig config, SigfoxRestHandler handler) {
+        SigfoxRestServlet.setHandler(handler);
+        this.server = createRestServer(config.getPort(), config.getPath(), SigfoxRestServlet.class);
     }
 
     public void start() throws IOException {

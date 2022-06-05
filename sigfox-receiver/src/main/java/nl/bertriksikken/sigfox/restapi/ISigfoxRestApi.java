@@ -18,7 +18,7 @@ public interface ISigfoxRestApi {
 
     @POST
     @Path("/advanced")
-    void advanced(@HeaderParam("User-Agent") String userAgent, String data);
+    void advanced(@HeaderParam("User-Agent") String userAgent, DataAdvanced data);
 
     @POST
     @Path("/status")

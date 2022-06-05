@@ -12,19 +12,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public final class ComputedLocation {
 
     @JsonProperty("lat")
-    double latitude = Double.NaN;
+    public double latitude = Double.NaN;
 
     @JsonProperty("lng")
-    double longitude = Double.NaN;
+    public double longitude = Double.NaN;
 
     @JsonProperty("radius")
-    int radius = 0;
+    public int radius = 0;
 
     @JsonProperty("source")
-    int source = 0;
+    public int source = 0;
 
     @JsonProperty("status")
-    int status = 0;
+    public int status = 0;
 
     @Override
     public String toString() {
