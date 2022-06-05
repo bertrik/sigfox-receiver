@@ -39,7 +39,7 @@ public final class SigfoxRestHandler {
         }
 
         // add GPS location fix
-        byte[] data = BaseEncoding.base16().decode(advanced.data);
+        byte[] data = BaseEncoding.base16().decode(advanced.data.toUpperCase());
         LocationFix gps = LocationFix.parse(data);
         if (gps != null) {
             event.setGps(gps.getLat(), gps.getLon(), gps.getAlt(), gps.getSats());
