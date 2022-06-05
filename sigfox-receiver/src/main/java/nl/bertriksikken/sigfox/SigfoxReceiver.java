@@ -22,7 +22,8 @@ public final class SigfoxReceiver {
     private final SigfoxRestServer restServer;
 
     public SigfoxReceiver(SigfoxReceiverConfig config) {
-        this.restServer = new SigfoxRestServer(config.getRestApiConfig());
+        SigfoxRestHandler handler = new SigfoxRestHandler(new File(config.getEventFile()));
+        this.restServer = new SigfoxRestServer(config.getRestConfig(), handler);
     }
 
     private static SigfoxReceiverConfig readOrCreateConfig(File configFile) throws IOException {

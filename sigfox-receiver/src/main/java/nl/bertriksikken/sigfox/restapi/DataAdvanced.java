@@ -33,22 +33,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public final class DataAdvanced {
 
     @JsonProperty("device")
-    String device = "";
+    public String device = "";
 
     @JsonProperty("time")
-    long time = 0;
+    public long time = 0;
 
     @JsonProperty("data")
-    String data = "";
+    public String data = "";
 
     @JsonProperty("seqNumber")
-    int seqNumber = 0;
+    public int seqNumber = 0;
 
     @JsonProperty("lqi")
     String lqi = ""; // e.g. "Limit"
 
     @JsonProperty("linkQuality")
-    int linkQuality = 0; // e.g. 0
+    public int linkQuality = 0; // e.g. 0
 
     @JsonProperty("fixedLat")
     Double fixedLat = Double.NaN;
@@ -66,7 +66,7 @@ public final class DataAdvanced {
     String deviceTypeId = ""; // e.g. 628fd74fb3cabb6565ae81bb
 
     @JsonProperty("computedLocation")
-    ComputedLocation computedLocation = new ComputedLocation();
+    public ComputedLocation computedLocation = new ComputedLocation();
 
     @Override
     public String toString() {

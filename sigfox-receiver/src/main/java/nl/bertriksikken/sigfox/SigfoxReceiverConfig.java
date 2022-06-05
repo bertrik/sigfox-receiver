@@ -2,15 +2,22 @@ package nl.bertriksikken.sigfox;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import nl.bertriksikken.sigfox.restapi.SigfoxRestApiConfig;
+import nl.bertriksikken.sigfox.restapi.SigfoxRestConfig;
 
 public final class SigfoxReceiverConfig {
 
-    @JsonProperty("restapi")
-    private SigfoxRestApiConfig restApiConfig = new SigfoxRestApiConfig();
-    
-    public SigfoxRestApiConfig getRestApiConfig() {
-        return restApiConfig;
+    @JsonProperty("rest")
+    private SigfoxRestConfig restConfig = new SigfoxRestConfig();
+
+    @JsonProperty("eventFile")
+    private String eventFile = "events.csv";
+
+    public SigfoxRestConfig getRestConfig() {
+        return restConfig;
     }
-    
+
+    public String getEventFile() {
+        return eventFile;
+    }
+
 }
