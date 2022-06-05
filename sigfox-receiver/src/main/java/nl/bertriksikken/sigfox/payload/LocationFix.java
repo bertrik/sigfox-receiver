@@ -27,7 +27,7 @@ public final class LocationFix {
             ByteBuffer bb = ByteBuffer.wrap(data).order(ByteOrder.BIG_ENDIAN);
             double lat = 1E-6 * bb.getInt();
             double lon = 1E-6 * bb.getInt();
-            double alt = 1E-1 * (bb.getShort() & 0xFFFF);
+            double alt = 1E-1 * bb.getShort();
             int sats = bb.get() & 0xFF;
             return new LocationFix(lat, lon, alt, sats);
         } catch (BufferUnderflowException e) {
