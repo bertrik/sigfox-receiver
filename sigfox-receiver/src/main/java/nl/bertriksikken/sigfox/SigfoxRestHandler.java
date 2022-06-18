@@ -42,7 +42,14 @@ public final class SigfoxRestHandler {
         byte[] data = BaseEncoding.base16().decode(advanced.data.toUpperCase());
         LocationFix gps = LocationFix.parse(data);
         if (gps != null) {
-            event.setGps(gps.getLat(), gps.getLon(), gps.getAlt(), gps.getSats());
+            event.setGps(gps.lat, gps.lon, gps.alt, gps.sats);
+        }
+
+        // calculate distance between Atlas and GPS
+        if ((atlas != null) && (gps != null)) {
+            double distance = GeoUtils.calculateDistance(new double[] { gps.lat, gps.lon },
+                    new double[] { atlas.latitude, atlas.longitude });
+            event.setDistance(distance);
         }
 
         try {

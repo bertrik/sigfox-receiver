@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @JsonInclude(Include.NON_NULL)
 @JsonPropertyOrder({ "time", "device", "sequence", "data", "link", "atlas_lat", "atlas_lon", "atlas_radius",
-        "atlas_source", "atlas_status", "gps_lat", "gps_lon", "gps_alt", "gps_sats" })
+        "atlas_source", "atlas_status", "gps_lat", "gps_lon", "gps_alt", "gps_sats", "distance" })
 public final class LocationEvent {
 
     @JsonProperty("time")
@@ -61,6 +61,9 @@ public final class LocationEvent {
     @JsonProperty("gps_sats")
     Integer gpsSats;
 
+    @JsonProperty("distance")
+    BigDecimal distance;
+
     public LocationEvent(Instant time, String device, int sequence, String data, int link) {
         this.time = time.truncatedTo(ChronoUnit.SECONDS).toString();
         this.device = device;
@@ -84,6 +87,10 @@ public final class LocationEvent {
         gpsSats = sats;
     }
 
+    public void setDistance(double distance) {
+        this.distance = BigDecimal.valueOf(distance).setScale(0, RoundingMode.HALF_UP);
+    }
+
     private String formatAtlas() {
         return atlasLat == null ? ""
                 : String.format(Locale.ROOT, "{lat=%.6f,lon=%.6f,radius=%d,source=%d,status=%d}", atlasLat, atlasLon,
@@ -97,8 +104,8 @@ public final class LocationEvent {
 
     @Override
     public String toString() {
-        return String.format(Locale.ROOT, "{time=%s,device=%s,sequence=%d,data=%s,atlas=%s,gps=%s}", time, device,
-                sequence, data, formatAtlas(), formatGps());
+        return String.format(Locale.ROOT, "{time=%s,device=%s,sequence=%d,data=%s,atlas=%s,gps=%s,distance=%.0f}", time,
+                device, sequence, data, formatAtlas(), formatGps(), distance);
     }
 
 }

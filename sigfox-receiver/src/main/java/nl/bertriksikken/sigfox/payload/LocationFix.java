@@ -10,10 +10,10 @@ import java.util.Locale;
  */
 public final class LocationFix {
 
-    private final double lat;
-    private final double lon;
-    private final double alt;
-    private final int sats;
+    public final double lat;
+    public final double lon;
+    public final double alt;
+    public final int sats;
 
     LocationFix(double lat, double lon, double alt, int sats) {
         this.lat = lat;
@@ -33,22 +33,6 @@ public final class LocationFix {
         } catch (BufferUnderflowException e) {
             return null;
         }
-    }
-
-    public double getLat() {
-        return lat;
-    }
-
-    public double getLon() {
-        return lon;
-    }
-
-    public double getAlt() {
-        return alt;
-    }
-
-    public int getSats() {
-        return sats;
     }
 
     @Override
