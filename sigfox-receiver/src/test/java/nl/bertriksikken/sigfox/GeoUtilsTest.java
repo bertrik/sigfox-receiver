@@ -11,7 +11,7 @@ public final class GeoUtilsTest {
         double[] groningen = new double[] { 53.2216999, 6.5306741 };
 
         double distance = GeoUtils.calculateDistance(rotterdam, groningen);
-        Assert.assertEquals(204209, distance, 100);
+        Assert.assertEquals(204249, distance, 100);
     }
 
 }
