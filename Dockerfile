@@ -1,5 +1,5 @@
 # Alpine Linux with OpenJDK JRE
-FROM openjdk:8-jre-alpine
+FROM adoptopenjdk/openjdk14:jre-14.0.2_12-alpine
 MAINTAINER Bertrik Sikken bertrik@gmail.com
 
 ADD sigfox-receiver/build/distributions/sigfox-receiver.tar /opt/
