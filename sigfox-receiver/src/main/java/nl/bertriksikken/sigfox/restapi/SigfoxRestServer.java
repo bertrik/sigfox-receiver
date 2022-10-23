@@ -1,17 +1,15 @@
 package nl.bertriksikken.sigfox.restapi;
 
 import java.io.IOException;
+import java.net.URI;
 
-import org.eclipse.jetty.server.Connector;
-import org.eclipse.jetty.server.HttpConnectionFactory;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.servlet.ServletContextHandler;
-import org.eclipse.jetty.servlet.ServletHolder;
-import org.glassfish.jersey.server.ServerProperties;
-import org.glassfish.jersey.servlet.ServletContainer;
+import org.glassfish.jersey.jetty.JettyHttpContainerFactory;
+import org.glassfish.jersey.server.ResourceConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import jakarta.ws.rs.core.UriBuilder;
 import nl.bertriksikken.sigfox.SigfoxRestHandler;
 
 public final class SigfoxRestServer {
@@ -46,24 +44,9 @@ public final class SigfoxRestServer {
 
     private Server createRestServer(int port, String contextPath, Class<?> clazz) {
         LOG.info("Setting up SigFox REST service on {}", port);
-        Server server = new Server(port);
-
-        // setup context
-        ServletContextHandler context = new ServletContextHandler(server, "/", ServletContextHandler.SESSIONS);
-
-        // suppress sending the exact jetty version
-        for (Connector connector : server.getConnectors()) {
-            connector.getConnectionFactories().stream().filter(HttpConnectionFactory.class::isInstance)
-                    .map(HttpConnectionFactory.class::cast)
-                    .forEach(f -> f.getHttpConfiguration().setSendServerVersion(false));
-        }
-
-        // setup web services container
-        ServletHolder sh = new ServletHolder(ServletContainer.class);
-        sh.setInitParameter(ServerProperties.PROVIDER_CLASSNAMES, clazz.getCanonicalName());
-        context.addServlet(sh, contextPath + "/*");
-        server.setHandler(context);
-        return server;
+        URI uri = UriBuilder.fromUri("http://localhost").port(port).build();
+        ResourceConfig config = new ResourceConfig(SigfoxRestServlet.class);
+        return JettyHttpContainerFactory.createServer(uri, config);
     }
 
 }
