@@ -1,8 +1,8 @@
 version: "3"
 services:
   java:
-    build: ..
     image: ghcr.io/bertrik/sigfox-receiver
+    build: ..
     restart: always
     volumes:
       - "./sigfox-receiver.yaml:/opt/sigfox-receiver/sigfox-receiver.yaml:ro"
