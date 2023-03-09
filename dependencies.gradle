@@ -5,7 +5,7 @@ ext {
     retrofitVersion = '2.9.0'
     slf4jVersion = '2.0.6'
     jerseyVersion = '3.1.1'
-    jettyVersion = '11.0.13'
+    jettyVersion = '11.0.14'
 }
 
 libraries.slf4j = "org.slf4j:slf4j-api:${slf4jVersion}"
@@ -25,7 +25,7 @@ libraries.retrofit = [
     "com.squareup.retrofit2:converter-jackson:${retrofitVersion}",
     "com.squareup.retrofit2:converter-scalars:${retrofitVersion}"
 ]
-libraries.retrofit_mock = 'com.squareup.retrofit2:retrofit-mock:2.8.1'
+libraries.retrofit_mock = "com.squareup.retrofit2:retrofit-mock:${retrofitVersion}"
 
 libraries.jersey_server = [
     "org.glassfish.jersey.containers:jersey-container-jetty-http:${jerseyVersion}",
@@ -41,5 +41,5 @@ libraries.jersey_server = [
 
 // test libraries
 libraries.junit = 'junit:junit:4.13.2'
-libraries.mockito = 'org.mockito:mockito-core:5.1.1'
+libraries.mockito = 'org.mockito:mockito-core:5.2.0'
 
