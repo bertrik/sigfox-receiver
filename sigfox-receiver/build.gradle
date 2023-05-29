@@ -3,14 +3,14 @@ apply plugin: "application"
 mainClassName = 'nl.bertriksikken.sigfox.SigfoxReceiver'
 
 dependencies {
-    implementation libraries.reload4j
+    implementation libs.slf4j.reload4j
     
-    implementation libraries.guava
-    implementation libraries.retrofit
-    implementation libraries.jackson
+    implementation libs.guava
+    implementation libs.bundles.retrofit
+    implementation libs.bundles.jackson
 
     // REST server
-    implementation libraries.jersey_server
+    implementation libs.bundles.jersey
 }
 
 // fix scripts executable bit and line endings
