@@ -1,6 +1,8 @@
 apply plugin: "application"
 
-mainClassName = 'nl.bertriksikken.sigfox.SigfoxReceiver'
+application {
+    mainClass = 'nl.bertriksikken.sigfox.SigfoxReceiver'
+}
 
 dependencies {
     implementation libs.slf4j.reload4j
