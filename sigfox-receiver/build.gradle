@@ -7,7 +7,6 @@ application {
 dependencies {
     implementation libs.slf4j.reload4j
     
-    implementation libs.guava
     implementation libs.bundles.retrofit
     implementation libs.bundles.jackson
 

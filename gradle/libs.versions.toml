@@ -15,7 +15,6 @@ retrofit2-converter-jackson = { module = "com.squareup.retrofit2:converter-jacks
 retrofit2-converter-scalars = { module = "com.squareup.retrofit2:converter-scalars", version.ref = "retrofit2" }
 
 spotbugs = "com.github.spotbugs:spotbugs:4.7.3"
-guava = "com.google.guava:guava:31.1-jre"
 
 junit = "junit:junit:4.13.2"
 

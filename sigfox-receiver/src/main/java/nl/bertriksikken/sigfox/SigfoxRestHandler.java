@@ -2,11 +2,10 @@ package nl.bertriksikken.sigfox;
 
 import java.io.IOException;
 import java.time.Instant;
+import java.util.Base64;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.google.common.io.BaseEncoding;
 
 import nl.bertriksikken.sigfox.export.EventWriter;
 import nl.bertriksikken.sigfox.export.LocationEvent;
@@ -39,7 +38,7 @@ public final class SigfoxRestHandler {
         }
 
         // add GPS location fix
-        byte[] data = BaseEncoding.base16().decode(advanced.data.toUpperCase());
+        byte[] data = Base64.getDecoder().decode(advanced.data.toUpperCase());
         LocationFix gps = LocationFix.parse(data);
         if (gps != null) {
             event.setGps(gps.getLat(), gps.getLon(), gps.getAlt(), gps.getSats());
