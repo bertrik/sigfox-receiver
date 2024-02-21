@@ -11,6 +11,8 @@ dependencies {
     implementation libs.bundles.jackson
 
     // REST server
-    implementation libs.bundles.jersey
+    implementation libs.jakarta.ws.rs
+    implementation libs.jakarta.servlet
+    implementation libs.bundles.jersey.server
 }
 
