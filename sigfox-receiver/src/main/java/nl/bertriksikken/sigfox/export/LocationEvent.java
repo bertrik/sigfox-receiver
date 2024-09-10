@@ -32,6 +32,7 @@ public final class LocationEvent {
     private final String data;
 
     @JsonProperty("link")
+    @SuppressWarnings("UnusedVariable")
     private final int link;
 
     @JsonProperty("atlas_lat")

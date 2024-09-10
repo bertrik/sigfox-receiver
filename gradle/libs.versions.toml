@@ -3,8 +3,11 @@ jackson = "2.17.2"
 jersey = "3.1.8"
 retrofit = "2.11.0"
 slf4j = "2.0.16"
+errorprone = "2.31.0"
 
 [libraries]
+errorprone_annotations = { module = "com.google.errorprone:error_prone_annotations", version.ref = "errorprone" }
+errorprone_core = { module = "com.google.errorprone:error_prone_core", version.ref = "errorprone" }
 jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
 jackson-dataformat-csv = { module = "com.fasterxml.jackson.dataformat:jackson-dataformat-csv", version.ref = "jackson" }
 jackson-dataformat-yaml = { module = "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml", version.ref = "jackson" }
@@ -13,8 +16,6 @@ jackson-datatype-jsr310 = { module = "com.fasterxml.jackson.datatype:jackson-dat
 retrofit-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-converter-jackson = { module = "com.squareup.retrofit2:converter-jackson", version.ref = "retrofit" }
 retrofit-converter-scalars = { module = "com.squareup.retrofit2:converter-scalars", version.ref = "retrofit" }
-
-spotbugs = "com.github.spotbugs:spotbugs:4.7.3"
 
 junit = "junit:junit:4.13.2"
 
@@ -42,8 +43,8 @@ jersey-server = [
 ]
 
 [plugins]
+errorprone = "net.ltgt.errorprone:4.0.1"
 versions = "com.github.ben-manes.versions:0.51.0"
-spotbugs = "com.github.spotbugs:5.0.14"
 version-catalog-update = "nl.littlerobots.version-catalog-update:0.8.4"
 dependencycheck = "org.owasp.dependencycheck:8.4.2"
 

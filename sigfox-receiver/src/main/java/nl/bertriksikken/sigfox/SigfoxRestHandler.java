@@ -3,6 +3,7 @@ package nl.bertriksikken.sigfox;
 import java.io.IOException;
 import java.time.Instant;
 import java.util.Base64;
+import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,7 +39,7 @@ public final class SigfoxRestHandler {
         }
 
         // add GPS location fix
-        byte[] data = Base64.getDecoder().decode(advanced.data.toUpperCase());
+        byte[] data = Base64.getDecoder().decode(advanced.data.toUpperCase(Locale.ROOT));
         LocationFix gps = LocationFix.parse(data);
         if (gps != null) {
             event.setGps(gps.getLat(), gps.getLon(), gps.getAlt(), gps.getSats());

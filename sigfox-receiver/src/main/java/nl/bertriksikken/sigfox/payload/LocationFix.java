@@ -53,6 +53,6 @@ public final class LocationFix {
 
     @Override
     public String toString() {
-        return String.format(Locale.ROOT, "{lat=%f,lon=%f,alt=%d,sats=%d}", lat, lon, alt, sats);
+        return String.format(Locale.ROOT, "{lat=%f,lon=%f,alt=%.1f,sats=%d}", lat, lon, alt, sats);
     }
 }
