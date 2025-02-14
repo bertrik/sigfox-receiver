@@ -44,7 +44,6 @@ jersey-server = [
 
 [plugins]
 errorprone = "net.ltgt.errorprone:4.1.0"
-versions = "com.github.ben-manes.versions:0.51.0"
-version-catalog-update = "nl.littlerobots.version-catalog-update:0.8.4"
+versions = "com.github.ben-manes.versions:0.52.0"
 dependencycheck = "org.owasp.dependencycheck:8.4.2"
 
