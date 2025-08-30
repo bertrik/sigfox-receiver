@@ -1,9 +1,10 @@
 [versions]
-jackson = "2.18.2"
-jersey = "3.1.10"
-retrofit = "2.11.0"
-slf4j = "2.0.16"
-errorprone = "2.36.0"
+errorprone = "2.41.0"
+jackson = "2.20.0"
+jersey = "3.1.11"
+mockito = "5.19.0"
+retrofit = "3.0.0"
+slf4j = "2.0.17"
 
 [libraries]
 errorprone_annotations = { module = "com.google.errorprone:error_prone_annotations", version.ref = "errorprone" }
@@ -27,7 +28,7 @@ jersey-server-inject = { module = "org.glassfish.jersey.inject:jersey-hk2", vers
 jersey-server-jackson = { module = "org.glassfish.jersey.media:jersey-media-json-jackson", version.ref = "jersey" }
 jersey-server-jetty = { module = "org.glassfish.jersey.containers:jersey-container-jetty-http", version.ref = "jersey" }
 
-mockito-core = "org.mockito:mockito-core:5.15.2"
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito" }
 
 slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
 slf4j-reload4j = { module = "org.slf4j:slf4j-reload4j", version.ref = "slf4j" }
@@ -43,7 +44,7 @@ jersey-server = [
 ]
 
 [plugins]
-errorprone = "net.ltgt.errorprone:4.1.0"
+errorprone = "net.ltgt.errorprone:4.3.0"
 versions = "com.github.ben-manes.versions:0.52.0"
 dependencycheck = "org.owasp.dependencycheck:8.4.2"
 
