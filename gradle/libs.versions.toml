@@ -5,6 +5,7 @@ jersey = "3.1.11"
 mockito = "5.23.0"
 retrofit = "3.0.0"
 slf4j = "2.0.17"
+junit = "6.0.3"
 
 [libraries]
 errorprone_annotations = { module = "com.google.errorprone:error_prone_annotations", version.ref = "errorprone" }
@@ -32,6 +33,10 @@ mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito" }
 
 slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
 slf4j-reload4j = { module = "org.slf4j:slf4j-reload4j", version.ref = "slf4j" }
+
+junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
 
 [bundles]
 jackson = ["jackson-databind", "jackson-dataformat-csv", "jackson-dataformat-yaml", "jackson-datatype-jsr310" ]

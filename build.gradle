@@ -28,6 +28,10 @@ subprojects {
         mavenCentral()
     }
 
+    tasks.withType(Test).configureEach {
+        useJUnitPlatform()
+    }
+
     // Reject all non stable versions in dependency check
     tasks.named("dependencyUpdates").configure {
         rejectVersionIf {
@@ -40,8 +44,9 @@ subprojects {
         errorprone(libs.errorprone.core)
         compileOnly libs.errorprone.annotations
 
-        testImplementation libs.junit
-        testImplementation libs.mockito.core
+        testImplementation(platform(libs.junit.bom))
+        testImplementation(libs.junit.jupiter)
+        testRuntimeOnly(libs.junit.platform.launcher)
 
         implementation libs.slf4j.api
     }

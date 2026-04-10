@@ -1,13 +1,12 @@
 package nl.bertriksikken.sigfox.export;
 
-import java.time.Instant;
-
-import org.junit.Test;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
+import org.junit.jupiter.api.Test;
+
+import java.time.Instant;
 
 public final class ExportEventTest {
 
