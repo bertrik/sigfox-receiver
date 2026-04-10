@@ -1,8 +1,8 @@
 [versions]
-errorprone = "2.41.0"
-jackson = "2.20.0"
+errorprone = "2.49.0"
+jackson = "2.21.2"
 jersey = "3.1.11"
-mockito = "5.19.0"
+mockito = "5.23.0"
 retrofit = "3.0.0"
 slf4j = "2.0.17"
 
@@ -44,7 +44,7 @@ jersey-server = [
 ]
 
 [plugins]
-errorprone = "net.ltgt.errorprone:4.3.0"
-versions = "com.github.ben-manes.versions:0.52.0"
+errorprone = "net.ltgt.errorprone:5.1.0"
+versions = "com.github.ben-manes.versions:0.53.0"
 dependencycheck = "org.owasp.dependencycheck:8.4.2"
 
