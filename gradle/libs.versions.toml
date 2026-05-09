@@ -1,7 +1,7 @@
 [versions]
 errorprone = "2.49.0"
-jackson = "2.21.2"
-jersey = "3.1.11"
+jackson = "2.21.3"
+jersey = "4.0.2"
 mockito = "5.23.0"
 retrofit = "3.0.0"
 slf4j = "2.0.17"
@@ -50,6 +50,6 @@ jersey-server = [
 
 [plugins]
 errorprone = "net.ltgt.errorprone:5.1.0"
-versions = "com.github.ben-manes.versions:0.53.0"
-dependencycheck = "org.owasp.dependencycheck:8.4.2"
+versions = "com.github.ben-manes.versions:0.54.0"
+dependencycheck = "org.owasp.dependencycheck:12.2.1"
 
