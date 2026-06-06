@@ -1,11 +1,11 @@
 [versions]
 errorprone = "2.49.0"
-jackson = "2.21.3"
+jackson = "2.22.0"
 jersey = "4.0.2"
 mockito = "5.23.0"
 retrofit = "3.0.0"
-slf4j = "2.0.17"
-junit = "6.0.3"
+slf4j = "2.0.18"
+junit = "6.1.0"
 
 [libraries]
 errorprone_annotations = { module = "com.google.errorprone:error_prone_annotations", version.ref = "errorprone" }
